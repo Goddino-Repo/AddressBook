@@ -1,0 +1,160 @@
+#box {
+    border-radius: 3px;
+    color: rgb(73, 69, 69);
+    font-family: arial, sans-serif;
+    left: 50%;
+    line-height: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+input {
+    text-align: center;
+}
+
+label {
+    margin: 0 auto!important;
+    text-align: center!important;
+}
+
+.title {
+    margin: 10px auto 0!important;
+    text-align: center!important;
+}
+
+form {
+    text-align: center;
+}
+
+#validationDefault04 {
+    text-align: center!important;
+}
+
+#buttonRead {
+    margin-top: 22px;
+}
+
+.hiddenName {
+    display: none;
+}
+
+#addresses {
+	text-align: center;
+}
+
+#readContactsTable button, #addContactTable button {
+	border-radius: 20px!important;
+	cursor: pointer!important;
+	height: 40px!important;
+	vertical-align: 0px;
+	width: 41px!important;
+}
+
+table button {
+	margin: 0 7px;
+	text-align: center;
+	width: 100%;
+}
+
+button svg {
+	vertical-align: 0px;
+}
+
+#addSvg {
+	margin-left: -8px!important;
+	margin-top: -3px!important;
+}
+
+/* #addressBookBody {
+	overflow: hidden!important;
+} */
+
+/* css test */
+.table-container {
+    height: 80%;
+}
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+table thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+}
+table tbody {
+    /* body takes all the remaining available space */
+    display: block;
+    flex: 1 1 auto;
+    max-height: 500px!important;
+    min-height: 65px;
+    overflow-y: scroll;
+    margin-right: -3px;
+}
+table tbody tr {
+    width: 100%;
+}
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+#modalDeleteP {
+	color: #ff0000;
+	font-size: 18px;
+	font-weight: bolder;
+}
+#idToShow {
+	vertical-align: middle!important;
+}
+#idTh {
+	border-bottom: none;
+	line-height: 1;
+}
+.uuidShowText {
+	line-height: 1;
+}
+th, td {
+	vertical-align: middle!important;
+}
+#hashMapLength {
+	display: none;
+}
+.centralInputTable {
+	padding-bottom: 0px!important;
+}
+body {
+	margin-right: 15px;
+	margin-top: 7px;
+	overflow-y: hidden;
+}
+#readContactsTable_info {
+	line-height: 1!important;
+}
+#readContactsTable_info + div {
+	margin-top: -105px;
+	margin-bottom: -1px;
+}
+#readContactsTable_filter {
+	text-align: left!important;
+}
+#readContactsTable_paginate + div {
+	margin-top: 6px!important;
+}
+.col-md-7 {
+	max-width: 57.55%!important;
+}
+#readContactsTable_wrapper div:nth-child(3) {
+	margin-top: 6px!important;
+}
+table {
+	border: none!important;
+	margin-left: 6px;
+}
+#addContactTable thead {
+	margin-left: 8px;
+}
