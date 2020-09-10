@@ -74,7 +74,7 @@
 					<tr>
 						<th scope="row" id="idTh">
 							<span id="idToShow"></span>
-							<input type="hidden" id="idFromShow" readonly name="id" value="<% out.print(addressBookService.generateUniqueIdentifier()); %>" form="addContact">
+							<input type="hidden" id="idFromShow" readonly name="id" value="<% out.print(AddressBookService.generateUniqueIdentifier()); %>" form="addContact">
 						</th>
 						<td class="centralInputTable">
 							<div class="form-group">

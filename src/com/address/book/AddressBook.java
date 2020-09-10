@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/AddressBook")
+import com.pellegrini.code.utils.Utils;
+
+@WebServlet("/Addressook")
 public class AddressBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,9 +24,9 @@ public class AddressBook extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
     	System.out.println("Server started at: " + Utils.getCurrentTimestamp());
     	try {
-    		File csvData = new File(csvService.addressBookData);
+    		File csvData = new File(CsvService.addressBookData);
     		if(csvData.exists())
-    			csvService.loadFromCsv();
+    			CsvService.loadFromCsv();
 		} catch (IOException e) {
 			System.out.println("(init) Exception registered: " + e);
 		}
@@ -39,20 +41,20 @@ public class AddressBook extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if(action.equals("create")) {
-			addressBookService.create(request);
+			AddressBookService.create(request);
 			response.sendRedirect("index.jsp");
 		}
 		if(action.equals("delete")) {
-			addressBookService.delete(request);
+			AddressBookService.delete(request);
 			response.sendRedirect("index.jsp");
 		}
 		if(action.equals("update")) {
-			addressBookService.update(request);
+			AddressBookService.update(request);
 			response.sendRedirect("index.jsp");
 		}
 		if(action.equals("init1")) {
 			try {
-				csvService.generateCsvForDebug();
+				CsvService.generateCsvForDebug();
 				doGet(request, response);
 			} catch (IOException e) {
 				System.out.println("(generate csv) Exception registered: " + e);

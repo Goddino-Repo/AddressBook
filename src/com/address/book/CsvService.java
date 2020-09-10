@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,22 +17,24 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
 
-public class csvService {
+public class CsvService {
 	public static final String addressBookData = "dataGet.csv";
+	@SuppressWarnings({ "resource" })
 	public static void dumpDataIntoCsv() throws IOException {
 		File addressBookCsvData = new File(addressBookData);
 		StringBuilder lines = new StringBuilder();
-		for(Map.Entry<String, Contact> entry : ContactsDao.contactsMap.entrySet()) {
-			String uuid = entry.getValue().getUniqueIdentifier();
-			String name = entry.getValue().getName();
-			String surname = entry.getValue().getSurname();
-			String phone = entry.getValue().getPhone();
-			String email = entry.getValue().getEmail();
-			String company = entry.getValue().getCompany();
-			lines.append(uuid).append(",").append(name).append(",").append(surname).append(",").append(phone).append(",").append(email).append(",").append(company).append("\n");
-		}
-//		CSVPrinter pippo;
-//		pippo.printRecords(arg0);
+		StringWriter stringWriter = new StringWriter();
+	    CSVPrinter printer = new CSVPrinter(stringWriter, CSVFormat.DEFAULT);
+		//for(Map.Entry<String, Contact> entry : ContactsDao.contactsMap.entrySet()) {
+//			String uuid = entry.getValue().getUniqueIdentifier();
+//			String name = entry.getValue().getName();
+//			String surname = entry.getValue().getSurname();
+//			String phone = entry.getValue().getPhone();
+//			String email = entry.getValue().getEmail();
+//			String company = entry.getValue().getCompany();
+//			lines.append(uuid).append(",").append(name).append(",").append(surname).append(",").append(phone).append(",").append(email).append(",").append(company).append("\n");
+			printer.printRecords(ContactsDao.contactsMap);
+		//}
 		FileUtils.writeStringToFile(addressBookCsvData, lines.toString(), StandardCharsets.UTF_8.name());
 	}
 	public static void loadFromCsv() throws IOException {

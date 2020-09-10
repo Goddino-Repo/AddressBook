@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 
-public class addressBookService {
+public class AddressBookService {
 	public static Contact checkData(Contact info) throws IOException {
 		String empty = "-";
 		if(info.getName().isEmpty())
@@ -45,12 +45,12 @@ public class addressBookService {
 		String email = request.getParameter("email");
 		String company = request.getParameter("company");
 		ContactsDao.create(id, checkData(new Contact(id, name, surname, phone, email, company)));
-		csvService.dumpDataIntoCsv();
+		CsvService.dumpDataIntoCsv();
 	}
 	public static void delete(HttpServletRequest request) throws IOException {
 		String id = request.getParameter("id");
 		ContactsDao.delete(id);
-		csvService.dumpDataIntoCsv();
+		CsvService.dumpDataIntoCsv();
 	}
 	public static void update(HttpServletRequest request) throws IOException {
 		String idUpdate = request.getParameter("id");
@@ -60,6 +60,6 @@ public class addressBookService {
 		String emailUpdate = request.getParameter("email");
 		String companyUpdate = request.getParameter("company");
 		ContactsDao.update(idUpdate, checkData(new Contact(idUpdate, nameUpdate, surnameUpdate, phoneUpdate, emailUpdate, companyUpdate)));
-		csvService.dumpDataIntoCsv();
+		CsvService.dumpDataIntoCsv();
 	}
 }
